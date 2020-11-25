@@ -6,11 +6,9 @@ import java.io.IOException;
 
 /**
  * <p>
- *
+ *     开启dubbo服务
  * </p>
  *
- * @author: Eric
- * @since: 2020/11/21
  */
 public class ServiceApplication {
 

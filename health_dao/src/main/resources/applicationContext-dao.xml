@@ -10,13 +10,17 @@
         <property name="username" value="root"/>
         <property name="password" value="YUFEI0510"/>
     </bean>
-<!-- sqlSessionFactory工厂-->
+
+    <!-- sqlSessionFactory工厂-->
     <bean class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
     <!-- 别名扫包   -->
         <property name="typeAliasesPackage" value="com.itheima.health.pojo"/>
+        <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
     </bean>
-<!-- dao接口扫包 -->
+
+
+    <!-- dao接口扫包 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.itheima.health.dao"/>
     </bean>

@@ -12,6 +12,7 @@
     <artifactId>health_common</artifactId>
 
     <dependencies>
+        
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
