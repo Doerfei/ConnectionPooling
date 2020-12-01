@@ -82,6 +82,11 @@ public class SetmealServiceImpl implements SetmealService {
         return setmealDao.findCheckgroupIdsBySetmealId(id);
     }
 
+    /**
+     * 更新
+     * @param setmeal
+     * @param checkgroupIds
+     */
     @Override
     @Transactional
     public void update(Setmeal setmeal, Integer[] checkgroupIds) {
@@ -97,6 +102,11 @@ public class SetmealServiceImpl implements SetmealService {
         }
     }
 
+    /**
+     * 通过ID删除
+     * @param id
+     * @throws MyException
+     */
     @Override
     @Transactional
     public void deleteById(int id) throws MyException {
@@ -110,6 +120,57 @@ public class SetmealServiceImpl implements SetmealService {
         setmealDao.deleteSetmealCheckGroup(id);
         //在删除套餐
         setmealDao.deleteById(id);
-
     }
+
+    /**
+     * 查询数据库中套餐的所有图片
+     * @return
+     */
+    @Override
+   public List<String> findImgs(){
+        return setmealDao.findImgs();
+   }
+
+    /**
+     * 查询所有的套餐
+     * @return
+     */
+   @Override
+    public List<Setmeal> findAll(){
+        return setmealDao.findAll();
+   }
+
+    /**
+     * 查询套餐详情
+     * @param id
+     * @return
+     */
+   @Override
+    public Setmeal findDetailById(int id){
+       return setmealDao.findDetailById(id);
+   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

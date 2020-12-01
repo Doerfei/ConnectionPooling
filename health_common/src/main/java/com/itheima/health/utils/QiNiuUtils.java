@@ -27,6 +27,8 @@ public class QiNiuUtils {
         uploadFile("C:\\Users\\Eric\\Desktop\\file\\timg.jpg","dd2.jpg");
         //removeFiles("20190529083159.jpg","20190529083241.jpg");
         //listFile();
+        List<String> files = listFile();
+        files.forEach(System.out::println);
     }
 
     /**

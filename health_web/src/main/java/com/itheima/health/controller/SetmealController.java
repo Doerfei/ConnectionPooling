@@ -131,6 +131,12 @@ public class SetmealController {
         setmealService.update(setmeal,checkgroupIds);
         return new Result(true,"更改套餐成功");
     }
+
+    /**
+     * 通过ID删除
+     * @param id
+     * @return
+     */
     @PostMapping("/deleteById")
     public Result deleteById(int id){
         //调用服务层删除

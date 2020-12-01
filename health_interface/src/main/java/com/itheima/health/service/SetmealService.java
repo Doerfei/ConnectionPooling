@@ -14,13 +14,15 @@ import java.util.List;
 public interface SetmealService {
     /**
      * 添加套餐
+     *
      * @param setmeal
      * @param checkgroupIds
      */
-    void add(Setmeal setmeal,Integer[] checkgroupIds);
+    void add(Setmeal setmeal, Integer[] checkgroupIds);
 
     /**
      * 分页查询
+     *
      * @param queryPageBean
      * @return
      */
@@ -28,6 +30,7 @@ public interface SetmealService {
 
     /**
      * 通过ID查询套餐信息
+     *
      * @param id
      * @return
      */
@@ -35,6 +38,7 @@ public interface SetmealService {
 
     /**
      * 通过套餐查询选中的检查组id集合
+     *
      * @param id
      * @return
      */
@@ -42,16 +46,42 @@ public interface SetmealService {
 
     /**
      * 更新
+     *
      * @param setmeal
      * @param checkgroupIds
      */
-    void update(Setmeal setmeal,Integer[] checkgroupIds);
+    void update(Setmeal setmeal, Integer[] checkgroupIds);
 
     /**
      * 通过id删除
+     *
      * @param id
      * @throws MyException
      */
-    void deleteById(int id)throws MyException;
+    void deleteById(int id) throws MyException;
 
+
+    /**
+     * 查询数据库中套餐的所有图片
+     *
+     * @return
+     */
+    List<String> findImgs();
+
+
+    /**
+     * 查询所有套餐
+     *
+     * @return
+     */
+    List<Setmeal> findAll();
+
+
+    /**
+     * 查询套餐详情
+     *
+     * @param id
+     * @return
+     */
+    Setmeal findDetailById(int id);
 }
