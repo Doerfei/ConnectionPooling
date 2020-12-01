@@ -16,7 +16,7 @@
     
 <!--新增会员-->
     <insert id="add" parameterType="Member">
-        <selectKey resultType="java.lang.Integer > 0">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into t_member(fileNumber,name,sex,idCard,phoneNumber,regTime,password,email,birthday,remark)
@@ -29,7 +29,7 @@
     </delete>
 
 <!--根据id查询会员-->
-    <select id="findById" parameterType="int" resultType="Me,ber">
+    <select id="findById" parameterType="int" resultType="Member">
         select * from t_member where id = #{id}
     </select>
 
@@ -72,6 +72,7 @@
         <if test="remark != null">
             remark = #{remark},
         </if>
+    </set>
         where id = #{id}
     </update>
 

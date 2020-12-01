@@ -20,14 +20,7 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author: Eric
- * @since: 2020/11/26
- */
+
 @Component
 public class GenerateHtmlJob {
 

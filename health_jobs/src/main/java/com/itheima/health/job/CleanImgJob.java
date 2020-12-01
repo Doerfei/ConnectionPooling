@@ -11,14 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <p>
- * 清理7牛上的垃圾图片
- * </p>
- *
- * @author: Eric
- * @since: 2020/11/25
- */
+
 //@Component
 public class CleanImgJob {
 

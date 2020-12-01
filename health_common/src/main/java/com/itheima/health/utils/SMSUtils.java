@@ -14,14 +14,14 @@ import com.aliyuncs.profile.IClientProfile;
  * 短信发送工具类------小炒
  */
 public class SMSUtils {
-	public static final String VALIDATE_CODE = "SMS_189616640";//发送短信验证码模板编码  模版CODE
-	private static final String SIGN_NAEM = "黑马程序员";// 短信的签名
+	public static final String VALIDATE_CODE = "SMS_205892126";//发送短信验证码模板编码  模版CODE
+	private static final String SIGN_NAEM = "传智程序员";// 短信的签名
 	private static final String PARAMETER_NAME="code";
-	private static final String ACCESS_KEY="XXXX"; //你的AccessKey ID
-	private static final String SECRET_KEY="xxxx"; //你的AccessKey Secret
+	private static final String ACCESS_KEY="LTAI4GD8FFzr4Z6X9KkWoYrw"; //你的AccessKey ID
+	private static final String SECRET_KEY="oil0G0mmCWvxmXpd4L71K7k7MSjLoj"; //你的AccessKey Secret
 
 	public static void main(String[] args) throws ClientException {
-		SMSUtils.sendShortMessage(VALIDATE_CODE,"13652431027","666666");
+		SMSUtils.sendShortMessage(VALIDATE_CODE,"18547543870","666666");
 	}
 
 	/**

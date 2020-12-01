@@ -8,9 +8,7 @@ import com.itheima.health.entity.Result;
 import com.itheima.health.pojo.Order;
 import com.itheima.health.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -20,6 +18,8 @@ import java.util.Map;
  * @Author DoerFei
  * @Date 2020/11/28 下午8:55
  */
+@RestController
+@RequestMapping("/order")
 public class OrderController {
     @Autowired
     private JedisPool jedisPool;

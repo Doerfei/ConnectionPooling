@@ -5,14 +5,6 @@ import com.itheima.health.pojo.CheckItem;
 
 import java.util.List;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author: Eric
- * @since: 2020/11/21
- */
 public interface CheckItemDao {
 
     /**

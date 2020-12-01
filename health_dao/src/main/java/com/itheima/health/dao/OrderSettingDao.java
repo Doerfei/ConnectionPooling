@@ -19,6 +19,12 @@ public interface OrderSettingDao {
     OrderSetting findByOrderDate(Date orderDate);
 
     /**
+     * 更新最大预约数
+     * @param orderSetting
+     */
+    void updateNumber(OrderSetting orderSetting);
+
+    /**
      * 添加预约设置
      * @param orderSetting
      */
@@ -32,8 +38,9 @@ public interface OrderSettingDao {
     List<Map<String, Integer>> getDataByMonth(String month);
 
     /**
-     * 更新最大预约数
+     * 更新以预约人数
      * @param orderSetting
+     * @return
      */
-    void updateNumber(OrderSetting orderSetting);
+    int editReservationsByOrderDate(OrderSetting orderSetting);
 }
