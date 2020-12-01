@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+<!--【注意】这里的所有路径必须以/开头，否则启动报错-->
+<!--静态资源过滤 匿名访问security="none"-->
+    <security:http pattern="login.html" security="none"/>
+    <security:http pattern="fail.html" security="none"/>
+
+<!--拦截规则
+        auto-config:true:自动生成登陆页面，做登陆认证处理，推出处理
+        请求头Authentication:Basic{totken}
+        use-expressions:intercept-ur这个标签的access属性的配置，true时，access的值就可以使用表达式hasRole hasAuthority...
+        false access的值就是只能是以ROLE_打头的字符串与3个常量值-->
+    <security:http auto-config="true" use-expressions="false">
+<!--intercept-url:拦截的url,patten拦截的url对应的格式，格式满足就拦截
+    access：需要什么权限或角色才可以访问符合pattern的url
+    pattern="/**" access="ROLE_ADMIN":只有ROLE_ADMIN角色的人才可以访问我的系统-->
+    <security:intercept-url pattern="/**" access="ROLE_ADMIN"/>
+    <!--login-page:指定登陆页面
+           login-processing-url:告诉security哪个url请求做登陆认证，如果将来你的请求符合这个url,security就会帮我们去校验用户与密码
+           username-parameter:登陆时前端传过来的用户名的参数名。request。getParameter("参数名ABC")
+           password-parameter:登陆时前端页面传过来的密码的参数名，request.getParameter("参数名bbb")
+           authentcation-failure-url:登陆失败时跳转的路径
+           default-target-url：默认登陆成功后跳转的路径
+           always-use-default-target:登陆成功后强制跳转到default-target-url里-->
+    <security:form-login
+        login-page="/login.html"
+        login-processing-url="/css"
+        username-parameter="abc"
+        password-parameter="bbb"
+        authentication-failure-url="/fail.html"
+        default-target-url="/index.html"
+        always-use-default-target="true"
+    />
+<!--关闭跨越访问控制-->
+        <security:csrf disabled="true"/>
+    </security:http>
+<!--认证管理器-->
+    <security:authentication-manager>
+<!-- 用户信息提供者
+       user-service-ref：用户服务者指定与容器中bean对象来提供用户信息-->
+        <security:authentication-provider user-service-ref="userService">
+            <security:password-encoder ref="rncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+<!--    登陆用户信息的提供者-->
+    <bean id="encoder" class="com.itheima.service.UserService"/>
+</beans>
